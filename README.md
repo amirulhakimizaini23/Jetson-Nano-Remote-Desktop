@@ -13,7 +13,7 @@ Install Tailscale on the Jetson Nano and on your laptop. Once both devices are c
 ## **Table Of Content**
 
 - [Tailscale](#tailscale)
-- [Nomachine + Tailscale](#nomachine+Tailscale)
+- [Nomachine](#nomachine)
 - [Simulator](#simulator)
 - [Dashboard](#dashboard)
 - [Design](#design)
