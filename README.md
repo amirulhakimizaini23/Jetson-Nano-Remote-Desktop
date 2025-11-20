@@ -165,22 +165,22 @@ Example: syuk
 
 **(2)** It may show a “Welcome” screen with detected PCs. If your Jetson/server appears with its Tailscale IP, you can click it directly.
 
-**(3)** If not, do this:
+ If not, do this:
 
-**(4)** Click New to create a new connection.
+**(3)** Click New to create a new connection.
 
-**(5)** Protocol: choose NX (default).
+**(4)** Protocol: choose NX (default).
 
-**(6)** Host: enter your server’s Tailscale IP, e.g.:
+**(5)** Host: enter your server’s Tailscale IP, e.g.:
 
     100.64.23.10
 
 
-**(7)** Port: 4000 (default NoMachine port).
+**(6)** Port: 4000 (default NoMachine port).
 
-**(8)** Click Next until Finish (you can keep default settings: no proxy, etc.).
+**(7)** Click Next until Finish (you can keep default settings: no proxy, etc.).
 
-**(9)** You now have a connection entry, something like “Connection to 100.64.23.10”.
+**(8)** You now have a connection entry, something like “Connection to 100.64.23.10”.
 
 ## **c. Connect to the server via NoMachine**
 
