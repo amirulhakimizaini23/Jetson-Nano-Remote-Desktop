@@ -186,15 +186,15 @@ Example: syuk
 
 **(1)** In NoMachine, double-click the connection you just created.
 
-**(2)**First time, it may show a host key fingerprint warning — click Yes / Accept.
+**(2)** First time, it may show a host key fingerprint warning — click Yes / Accept.
 
-**(3)**Then you’ll see a login screen:
+**(3)** Then you’ll see a login screen:
 
     Username: your Linux username (e.g. syuk)
 
     Password: the password you set or already use for that user
 
-**(4)**After logging in:
+**(4)** After logging in:
 
     You should see your Linux desktop (or a list of virtual desktops, depending on the environment).
 
