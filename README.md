@@ -204,63 +204,63 @@ If everything is correct, you’re now controlling the Jetson/server GUI over Ta
 
 ## **PART 4 – Common issues & fixes**
 
-A. Can’t connect / timeout in NoMachine
+## **a. Can’t connect / timeout in NoMachine**
 
-Check:
+**== Check : ==**
 
-Tailscale working?
+**(1)** Tailscale working?
 
-From Windows, ping 100.xx.xx.xx = must reply.
+    From Windows, ping 100.xx.xx.xx = must reply.
 
-NoMachine running on Linux?
+**(2)** NoMachine running on Linux?
 
-sudo /usr/NX/bin/nxserver --status
-
-
-If it’s stopped:
-
-sudo /usr/NX/bin/nxserver --startup
-sudo /usr/NX/bin/nxserver --restart
+    sudo /usr/NX/bin/nxserver --status
 
 
-Firewall on Linux:
+**(3)** If it’s stopped:
 
-If using ufw:
+    sudo /usr/NX/bin/nxserver --startup
+    sudo /usr/NX/bin/nxserver --restart
 
-sudo ufw allow 4000/tcp
+
+**(4)** Firewall on Linux:
+
+    If using ufw:
+
+    sudo ufw allow 4000/tcp
 
 
 If you ping but NoMachine still fails, it’s almost always firewall/port.
 
-B. Black screen / display issues (Linux headless)
+## **b. Black screen / display issues (Linux headless)**
 
-If your Jetson/server has no monitor connected, sometimes NoMachine shows black screen.
+**== If your Jetson/server has no monitor connected, sometimes NoMachine shows black screen. ==**
 
-Try:
+**(1)** Try:
 
-Install a dummy X11 driver / virtual screen (depends on your distro).
+    Install a dummy X11 driver / virtual screen (depends on your distro).
 
-Or plug a cheap HDMI dummy plug so the GPU thinks there’s a monitor.
+    Or plug a cheap HDMI dummy plug so the GPU thinks there’s a monitor.
 
-C. Use Tailscale hostname instead of IP (optional)
+## **c. Use Tailscale hostname instead of IP (optional)**
 
-Tailscale gives each device a hostname like jetson-nano.tailnet-name.ts.net.
+**(1)** Tailscale gives each device a hostname like jetson-nano.tailnet-name.ts.net.
 
-You can use that instead of IP in NoMachine Host field (sometimes easier to remember).
+**(2)** You can use that instead of IP in NoMachine Host field (sometimes easier to remember).
 
-PART 5 – (Optional) Windows ↔ Windows setup
+## **PART 5 – (Optional) Windows ↔ Windows setup**
 
-If both server and client are Windows, steps are almost the same:
+**== If both server and client are Windows, steps are almost the same : ==**
 
-Install Tailscale on both → log in with same account.
+**(1)** Install Tailscale on both → log in with same account.
 
-Install NoMachine on both.
+**(2)** Install NoMachine on both.
 
-On the client:
+**(3)**On the client:
 
-Create NoMachine connection with Host = server’s Tailscale IP.
+    Create NoMachine connection with Host = server’s Tailscale IP.
 
-Log in using the Windows username & password on the server PC.
+    Log in using the Windows username & password on the server PC.
 
 ---
 
