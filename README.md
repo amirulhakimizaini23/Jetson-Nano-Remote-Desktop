@@ -116,4 +116,4 @@ Start Menu → Tailscale
 
 ---
 
-## **Nomachine + Tailscale**
+## **Nomachine**
