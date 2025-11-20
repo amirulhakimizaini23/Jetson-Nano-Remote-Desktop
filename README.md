@@ -184,21 +184,21 @@ Example: syuk
 
 ## **c. Connect to the server via NoMachine**
 
-In NoMachine, double-click the connection you just created.
+**(1)** In NoMachine, double-click the connection you just created.
 
-First time, it may show a host key fingerprint warning — click Yes / Accept.
+**(2)**First time, it may show a host key fingerprint warning — click Yes / Accept.
 
-Then you’ll see a login screen:
+**(3)**Then you’ll see a login screen:
 
-Username: your Linux username (e.g. syuk)
+    Username: your Linux username (e.g. syuk)
 
-Password: the password you set or already use for that user
+    Password: the password you set or already use for that user
 
-After logging in:
+**(4)**After logging in:
 
-You should see your Linux desktop (or a list of virtual desktops, depending on the environment).
+    You should see your Linux desktop (or a list of virtual desktops, depending on the environment).
 
-Choose the default desktop / virtual session if asked.
+    Choose the default desktop / virtual session if asked.
 
 If everything is correct, you’re now controlling the Jetson/server GUI over Tailscale + NoMachine 😎
 
