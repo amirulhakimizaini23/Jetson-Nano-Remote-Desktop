@@ -256,7 +256,7 @@ If you ping but NoMachine still fails, it’s almost always firewall/port.
 
 **(2)** Install NoMachine on both.
 
-**(3)**On the client:
+**(3)** On the client:
 
     Create NoMachine connection with Host = server’s Tailscale IP.
 
