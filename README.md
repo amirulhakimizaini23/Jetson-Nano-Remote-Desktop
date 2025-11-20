@@ -131,56 +131,58 @@ By default, NoMachine listens on port 4000 (NX protocol).
 
 ## **b. Install NoMachine on the client (Windows)**
 
-On Windows, go to nomachine.com/download.
+**(1)** On Windows, go to nomachine.com/download.
 
-Download NoMachine for Windows and install it with default options.
+**(2)** Download NoMachine for Windows and install it with default options.
 
-After install, run NoMachine from the Start menu.
+**(3)** After install, run NoMachine from the Start menu.
 
-PART 3 – Configure NoMachine for Tailscale
-7. Get server username
+## **PART 3 – Configure NoMachine for Tailscale**
 
-On the server (Linux), you need to know the username you’ll log in with.
+## **a. Get server username**
 
-Run:
+**(1)** On the server (Linux), you need to know the username you’ll log in with.
 
-whoami
+**(1.1)** Run:
+
+    whoami
 
 
 Example: syuk
 
-Also make sure that user has a password set (NoMachine uses system login):
+**(1.2)** Also make sure that user has a password set (NoMachine uses system login):
 
-sudo passwd syuk
-
-
-Set/confirm a password.
-
-8. Create a new connection in NoMachine (Windows)
-
-On Windows client:
-
-Open NoMachine.
-
-It may show a “Welcome” screen with detected PCs. If your Jetson/server appears with its Tailscale IP, you can click it directly.
-If not, do this:
-
-Click New to create a new connection.
-
-Protocol: choose NX (default).
-
-Host: enter your server’s Tailscale IP, e.g.:
-
-100.64.23.10
+    sudo passwd syuk
 
 
-Port: 4000 (default NoMachine port).
+**(1.3)** Set/confirm a password.
 
-Click Next until Finish (you can keep default settings: no proxy, etc.).
+## **b. Create a new connection in NoMachine (Windows)**
 
-You now have a connection entry, something like “Connection to 100.64.23.10”.
+**== On Windows client : ==**
 
-9. Connect to the server via NoMachine
+**(1)** Open NoMachine.
+
+**(1)** It may show a “Welcome” screen with detected PCs. If your Jetson/server appears with its Tailscale IP, you can click it directly.
+
+**(1)** If not, do this:
+
+**(2)** Click New to create a new connection.
+
+**(3)** Protocol: choose NX (default).
+
+**(4)** Host: enter your server’s Tailscale IP, e.g.:
+
+    100.64.23.10
+
+
+**(5)** Port: 4000 (default NoMachine port).
+
+**(6)** Click Next until Finish (you can keep default settings: no proxy, etc.).
+
+**(7)** You now have a connection entry, something like “Connection to 100.64.23.10”.
+
+## **c. Connect to the server via NoMachine**
 
 In NoMachine, double-click the connection you just created.
 
@@ -200,7 +202,8 @@ Choose the default desktop / virtual session if asked.
 
 If everything is correct, you’re now controlling the Jetson/server GUI over Tailscale + NoMachine 😎
 
-PART 4 – Common issues & fixes
+## **PART 4 – Common issues & fixes**
+
 A. Can’t connect / timeout in NoMachine
 
 Check:
