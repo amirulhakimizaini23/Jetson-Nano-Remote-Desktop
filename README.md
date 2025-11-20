@@ -14,7 +14,7 @@ Install Tailscale on the Jetson Nano and on your laptop. Once both devices are c
 
 - [Installation](#installation)
 - [Screenshot](#screenshot)
-- [Simulator](#simulator)
+- [Link](#link)
 
 ---
 
@@ -265,3 +265,9 @@ Log in using the Windows username & password on the server PC.
 ---
 
 ## **Screenshot**
+
+---
+
+## **Link**
+
+---
