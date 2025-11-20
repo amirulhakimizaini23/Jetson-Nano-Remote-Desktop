@@ -26,20 +26,20 @@ Install Tailscale on the Jetson Nano and on your laptop. Once both devices are c
 
 **1. Download Tailscale**
 
-**a.** Open your browser and go to:
+**(a)** Open your browser and go to:
 https://tailscale.com/download
 
-**b.** Under Windows, click Download for Windows.
+**(b)** Under Windows, click Download for Windows.
 
-**c.** Save the installer file (e.g., Tailscale-Setup.exe).
+**(c)** Save the installer file (e.g., Tailscale-Setup.exe).
 
 **2. Install Tailscale**
 
-**a.** Double-click the downloaded Tailscale-Setup.exe.
+**(a)** Double-click the downloaded Tailscale-Setup.exe.
 
-**b.** Click Yes if Windows asks permission to install.
+**(b)** Click Yes if Windows asks permission to install.
 
-**c.** Follow the installer prompts:
+**(c)** Follow the installer prompts:
 
   **@** Click Next
 
@@ -47,73 +47,72 @@ https://tailscale.com/download
 
   **@** Click Install
 
-**d.** The installation normally takes less than 10 seconds.
+**(d)** The installation normally takes less than 10 seconds.
 
 **3. Start Tailscale**
 
-**a.** After installation, Tailscale will start automatically.
+**(a)** After installation, Tailscale will start automatically.
 
-**b.** If not, open it from:
+**(b)** If not, open it from:
 Start Menu → Tailscale
 
 **4. Log In to Your Tailscale Account**
 
-A browser window will appear asking you to log in.
+**(a)** A browser window will appear asking you to log in.
 
-Choose your login method:
+**(b)** Choose your login method:
 
-Google
+    Google
 
-Microsoft
+    Microsoft
 
-GitHub
+    GitHub
 
-Email (Magic Link)
+    Email (Magic Link)
 
-Click Allow to authorize your Windows device.
+**(c)** Click Allow to authorize your Windows device.
 
 **5. Connect to the Tailscale Network**
 
-Once logged in:
+**(a)** Once logged in:
 
-Tailscale will automatically connect.
+    Tailscale will automatically connect.
 
-You will see Connected in the tray icon.
+    You will see Connected in the tray icon.
 
-Your device will now receive a Tailscale IP like:
+**(b)** Your device will now receive a Tailscale IP like:
 
-100.xx.xx.xx
+    100.xx.xx.xx
 
 6. Optional: Enable “Run at Startup”
 
-Click the Tailscale icon in the taskbar.
+**(a)** Click the Tailscale icon in the taskbar.
 
-Click Preferences.
+**(b)** Click Preferences.
 
-Check Start Tailscale when Windows starts.
+**(c)** Check Start Tailscale when Windows starts.
 
 7. (Optional) Set as “Exit Node” or Use One
 
-You can:
+**(a)** You can:
 
-Use another device’s internet connection
-or
+    Use another device’s internet connection
+    or
+    Make your Windows PC an exit node.
 
-Make your Windows PC an exit node.
+**(b)** To enable exit node (sharing your internet):
 
-To enable exit node (sharing your internet):
+    Open Tailscale
 
-Open Tailscale
+    Go to Settings
 
-Go to Settings
+    Enable Advertise exit node
 
-Enable Advertise exit node
+**(c)** To use an exit node:
 
-To use an exit node:
+    Open Tailscale
 
-Open Tailscale
-
-Select your preferred exit node under Route Settings
+    Select your preferred exit node under Route Settings
 
 ---
 
