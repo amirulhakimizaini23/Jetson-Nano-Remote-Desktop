@@ -24,7 +24,7 @@ Install Tailscale on the Jetson Nano and on your laptop. Once both devices are c
 
 **How to Install Tailscale on Windows (Step-by-Step)**
 
-**1. Download Tailscale**
+## **1. Download Tailscale**
 
 **(a)** Open your browser and go to:
 https://tailscale.com/download
@@ -33,7 +33,7 @@ https://tailscale.com/download
 
 **(c)** Save the installer file (e.g., Tailscale-Setup.exe).
 
-**2. Install Tailscale**
+## **2. Install Tailscale**
 
 **(a)** Double-click the downloaded Tailscale-Setup.exe.
 
@@ -49,14 +49,14 @@ https://tailscale.com/download
 
 **(d)** The installation normally takes less than 10 seconds.
 
-**3. Start Tailscale**
+## **3. Start Tailscale**
 
 **(a)** After installation, Tailscale will start automatically.
 
 **(b)** If not, open it from:
 Start Menu → Tailscale
 
-**4. Log In to Your Tailscale Account**
+## **4. Log In to Your Tailscale Account**
 
 **(a)** A browser window will appear asking you to log in.
 
@@ -72,7 +72,7 @@ Start Menu → Tailscale
 
 **(c)** Click Allow to authorize your Windows device.
 
-**5. Connect to the Tailscale Network**
+## **5. Connect to the Tailscale Network**
 
 **(a)** Once logged in:
 
@@ -84,7 +84,7 @@ Start Menu → Tailscale
 
     100.xx.xx.xx
 
-6. Optional: Enable “Run at Startup”
+## **6. Optional: Enable “Run at Startup”**
 
 **(a)** Click the Tailscale icon in the taskbar.
 
@@ -92,7 +92,7 @@ Start Menu → Tailscale
 
 **(c)** Check Start Tailscale when Windows starts.
 
-7. (Optional) Set as “Exit Node” or Use One
+## **7. (Optional) Set as “Exit Node” or Use One**
 
 **(a)** You can:
 
