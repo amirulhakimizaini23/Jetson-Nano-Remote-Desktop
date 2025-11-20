@@ -12,108 +12,253 @@ Install Tailscale on the Jetson Nano and on your laptop. Once both devices are c
 
 ## **Table Of Content**
 
-- [Tailscale](#tailscale)
-- [Nomachine](#nomachine)
+- [Installation](#installation)
+- [Screenshot](#screenshot)
 - [Simulator](#simulator)
-- [Dashboard](#dashboard)
-- [Design](#design)
 
 ---
 
-## **Tailscale**
+## **Installation**
 
-**How to Install Tailscale on Windows (Step-by-Step)**
+## **PART 1 – Install & connect Tailscale (private VPN)**
 
-## **1. Download Tailscale**
+## **(a) Create a Tailscale account**
 
-**(a)** Open your browser and go to:
-https://tailscale.com/download
+    1.Go to tailscale.com in your browser.
 
-**(b)** Under Windows, click Download for Windows.
+    2.Click Get Started / Sign up.
 
-**(c)** Save the installer file (e.g., Tailscale-Setup.exe).
+    3.Sign up with Google / Microsoft / GitHub (anything is fine).
 
-## **2. Install Tailscale**
+    4.After signup, you’ll see the Tailscale admin console (list of devices).
 
-**(a)** Double-click the downloaded Tailscale-Setup.exe.
+## **(b) Install Tailscale on the server (Linux / Jetson Nano)**
 
-**(b)** Click Yes if Windows asks permission to install.
+**(1)** On Ubuntu / Debian / Jetson Nano:
 
-**(c)** Follow the installer prompts:
+**(2)** Open Terminal on the server.
 
-  **@** Click Next
+    Run (for Debian/Ubuntu-based):
 
-  **@** Accept licence terms
+    curl -fsSL https://tailscale.com/install.sh | sh
 
-  **@** Click Install
 
-**(d)** The installation normally takes less than 10 seconds.
+**(3)** After install, bring it up:
 
-## **3. Start Tailscale**
+    sudo tailscale up
 
-**(a)** After installation, Tailscale will start automatically.
 
-**(b)** If not, open it from:
-Start Menu → Tailscale
+**(4)** The terminal will show a URL, something like:
 
-## **4. Log In to Your Tailscale Account**
+    To authenticate, visit: https://login.tailscale.com/a/XXXXXXXX
 
-**(a)** A browser window will appear asking you to log in.
 
-**(b)** Choose your login method:
+**(5)** Open that URL in your browser (on any device where you’re logged in to Tailscale), then approve the device.
 
-    Google
+**(6)** Back in the terminal, check status:
 
-    Microsoft
+    tailscale status
 
-    GitHub
 
-    Email (Magic Link)
+You should see your server listed with an IP like 100.x.x.x (this is the Tailscale IP).
 
-**(c)** Click Allow to authorize your Windows device.
+🔑 Important: Note your server’s Tailscale IP, e.g. 100.64.23.10. We’ll use this in NoMachine.
 
-## **5. Connect to the Tailscale Network**
+## **b. Install Tailscale on the client (Windows)**
 
-**(a)** Once logged in:
+**(1)** On your Windows PC, open browser → go to tailscale.com/download.
 
-    Tailscale will automatically connect.
+**(2)** Download Tailscale for Windows and install it.
 
-    You will see Connected in the tray icon.
+**(3)** After install, Tailscale icon appears in the system tray (near the clock).
 
-**(b)** Your device will now receive a Tailscale IP like:
+**(4)** Click the Tailscale icon → Log in… and use the same account as your server.
 
-    100.xx.xx.xx
+**(5)** After logging in, you should see “Connected”.
 
-## **6. Optional: Enable “Run at Startup”**
+**(6)** To see devices:
 
-**(a)** Click the Tailscale icon in the taskbar.
+    Right-click Tailscale icon → Admin Console → Tailscale opens in browser and shows all your devices (Windows + Jetson/server).
 
-**(b)** Click Preferences.
+    Now both machines are on the same private Tailscale network.
 
-**(c)** Check Start Tailscale when Windows starts.
+## **c. Test Tailscale connection**
 
-## **7. (Optional) Set as “Exit Node” or Use One**
+**== On Windows client : ==**
 
-**(a)** You can:
+**(1)** Press Win + R, type cmd, press Enter.
 
-    Use another device’s internet connection
-    or
-    Make your Windows PC an exit node.
+**(2)** Try pinging the server’s Tailscale IP:
 
-**(b)** To enable exit node (sharing your internet):
+    ping 100.xx.xx.xx
 
-    Open Tailscale
 
-    Go to Settings
+**(2.2)** If it replies, Tailscale is good.
 
-    Enable Advertise exit node
+**(2.3)** If not:
 
-**(c)** To use an exit node:
+    Make sure Tailscale is connected on both devices.
 
-    Open Tailscale
+    On Linux, you can also try:
 
-    Select your preferred exit node under Route Settings
+    sudo tailscale status
+
+## **PART 2 – Install NoMachine on both sides**
+
+**== NoMachine does the remote desktop; Tailscale is just the secure network. ==**
+
+## **a. Install NoMachine on the server (Linux / Jetson)**
+
+**(1)** Go to nomachine.com/download from the server’s browser.
+
+**(2)** Download the NoMachine for Linux package (.deb for Ubuntu/Jetson based on Debian).
+
+**(3)** Install it, e.g.:
+
+    sudo dpkg -i nomachine_*.deb
+    sudo apt-get install -f   # if there are missing dependencies
+
+
+**(4)** After install, the NoMachine server service usually starts automatically.
+
+    Check it:
+    sudo /usr/NX/bin/nxserver --status
+
+
+You should see something like “NoMachine – nxserver is running”.
+
+By default, NoMachine listens on port 4000 (NX protocol).
+
+## **b. Install NoMachine on the client (Windows)**
+
+On Windows, go to nomachine.com/download.
+
+Download NoMachine for Windows and install it with default options.
+
+After install, run NoMachine from the Start menu.
+
+PART 3 – Configure NoMachine for Tailscale
+7. Get server username
+
+On the server (Linux), you need to know the username you’ll log in with.
+
+Run:
+
+whoami
+
+
+Example: syuk
+
+Also make sure that user has a password set (NoMachine uses system login):
+
+sudo passwd syuk
+
+
+Set/confirm a password.
+
+8. Create a new connection in NoMachine (Windows)
+
+On Windows client:
+
+Open NoMachine.
+
+It may show a “Welcome” screen with detected PCs. If your Jetson/server appears with its Tailscale IP, you can click it directly.
+If not, do this:
+
+Click New to create a new connection.
+
+Protocol: choose NX (default).
+
+Host: enter your server’s Tailscale IP, e.g.:
+
+100.64.23.10
+
+
+Port: 4000 (default NoMachine port).
+
+Click Next until Finish (you can keep default settings: no proxy, etc.).
+
+You now have a connection entry, something like “Connection to 100.64.23.10”.
+
+9. Connect to the server via NoMachine
+
+In NoMachine, double-click the connection you just created.
+
+First time, it may show a host key fingerprint warning — click Yes / Accept.
+
+Then you’ll see a login screen:
+
+Username: your Linux username (e.g. syuk)
+
+Password: the password you set or already use for that user
+
+After logging in:
+
+You should see your Linux desktop (or a list of virtual desktops, depending on the environment).
+
+Choose the default desktop / virtual session if asked.
+
+If everything is correct, you’re now controlling the Jetson/server GUI over Tailscale + NoMachine 😎
+
+PART 4 – Common issues & fixes
+A. Can’t connect / timeout in NoMachine
+
+Check:
+
+Tailscale working?
+
+From Windows, ping 100.xx.xx.xx = must reply.
+
+NoMachine running on Linux?
+
+sudo /usr/NX/bin/nxserver --status
+
+
+If it’s stopped:
+
+sudo /usr/NX/bin/nxserver --startup
+sudo /usr/NX/bin/nxserver --restart
+
+
+Firewall on Linux:
+
+If using ufw:
+
+sudo ufw allow 4000/tcp
+
+
+If you ping but NoMachine still fails, it’s almost always firewall/port.
+
+B. Black screen / display issues (Linux headless)
+
+If your Jetson/server has no monitor connected, sometimes NoMachine shows black screen.
+
+Try:
+
+Install a dummy X11 driver / virtual screen (depends on your distro).
+
+Or plug a cheap HDMI dummy plug so the GPU thinks there’s a monitor.
+
+C. Use Tailscale hostname instead of IP (optional)
+
+Tailscale gives each device a hostname like jetson-nano.tailnet-name.ts.net.
+
+You can use that instead of IP in NoMachine Host field (sometimes easier to remember).
+
+PART 5 – (Optional) Windows ↔ Windows setup
+
+If both server and client are Windows, steps are almost the same:
+
+Install Tailscale on both → log in with same account.
+
+Install NoMachine on both.
+
+On the client:
+
+Create NoMachine connection with Host = server’s Tailscale IP.
+
+Log in using the Windows username & password on the server PC.
 
 ---
 
-## **Nomachine**
+## **Screenshot**
